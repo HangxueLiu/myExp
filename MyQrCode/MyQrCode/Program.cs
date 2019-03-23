@@ -164,19 +164,21 @@ namespace MyQrCode
                 System.Console.WriteLine("out");*/
             if (args.Length == 1)//无参数输出帮助文档，并安全退出
             {
-                Console.WriteLine("命令行可以是例如 -f D:\\csharp\\MyQrCode\\MyQrCode\bin\\Debugtext.txt'，-f表示QrCode信息放在-f的后面的data\aqrcode.txt文件中。如果没有-f则在控制台输出QrCode。");
+                Console.WriteLine("命令行可以是例如 -f D:\\csharp\\MyQrCode\\MyQrCode\bin\\Debug\\text.txt，-f表示QrCode信息放在-f的后面的data\aqrcode.txt文件中。");
                 Console.WriteLine("也可以从数据库中读取 例如 -m sever=host;database=gy1;uid=root;pwd=a1102134015 myTable");
-                Console.WriteLine("还可以从excel表中读取 例如 -e D:\\csharp\\MyQrCode\\MyQrCode\\bin\\Debug\test.xls");
+                Console.WriteLine("还可以从excel表中读取 例如 -e D:\\csharp\\MyQrCode\\MyQrCode\\bin\\Debug\\text.xls");
                 Console.WriteLine("二维码保存在bin目录下的 图片文件夹下");
+                Console.WriteLine("如果不含参数则在控制台读取字符串，且在控制台输出二维码。");
                 Console.WriteLine("安全退出");
                 return;
             }
-            if (args.Length == 2 && (args[1] == "-f" || args[1] == "-m") || args[1] == "-e")//如果有两个参数而且第二个参数为 -f或-m或-e 输出帮助文档并且退出
+            if (args.Length == 2 && (args[1] == "-f" || args[1] == "-m"|| args[1] == "-e"))//如果有两个参数而且第二个参数为 -f或-m或-e 输出帮助文档并且退出
             {
-                Console.WriteLine("命令行可以是例如 -f D:\\csharp\\MyQrCode\\MyQrCode\bin\\Debugtext.txt'，-f表示QrCode信息放在-f的后面的data\aqrcode.txt文件中。如果没有-f则在控制台输出QrCode。");
+                Console.WriteLine("命令行可以是例如 -f D:\\csharp\\MyQrCode\\MyQrCode\bin\\Debug\\text.txt，-f表示QrCode信息放在-f的后面的data\aqrcode.txt文件中。");
                 Console.WriteLine("也可以从数据库中读取 例如 -m sever=host;database=gy1;uid=root;pwd=a1102134015 myTable");
-                Console.WriteLine("还可以从excel表中读取 例如 -e D:\\csharp\\MyQrCode\\MyQrCode\\bin\\Debug\test.xls");
+                Console.WriteLine("还可以从excel表中读取 例如 -e D:\\csharp\\MyQrCode\\MyQrCode\\bin\\Debug\\text.xls");
                 Console.WriteLine("二维码保存在bin目录下的 图片文件夹下");
+                Console.WriteLine("如果不含参数则在控制台读取字符串，且在控制台输出二维码。");
                 Console.WriteLine("安全退出");
                 return;
             }
@@ -189,10 +191,11 @@ namespace MyQrCode
 
                     //Console.WriteLine("11111");
                     printQrCodesInjpg(readFromFile(args[2]));
+         
                     Console.WriteLine("输出完毕file");
                 }
             }
-            else if (args.Length == 3 && args[1] == "-e")//有两个参数且第二个参数为-e 则在.xls文件中读取数据，并且保存在在bin目录下的 图片文件夹下
+            else if (args.Length == 3 && args[1] == "-e")//有三个参数且第二个参数为-e 则在.xls文件中读取数据，并且保存在在bin目录下的 图片文件夹下
             {
                 if (args.Length > 3)
                     Console.WriteLine("Wrong");
@@ -202,7 +205,7 @@ namespace MyQrCode
                     Console.WriteLine("输出完毕excel");
                 }
             }
-            else if (args.Length == 4 && args[1] == "-m")//有两个参数且第二个参数为-m 则在数据库中读取数据，并且保存在在bin目录下的 图片文件夹下
+            else if (args.Length == 4 && args[1] == "-m")//有四个参数且第二个参数为-m 则在数据库中读取数据，并且保存在在bin目录下的 图片文件夹下
             {
                 //-m server=localhost;database=gy1;uid=root;pwd=a1102134015 myTable
                 if (args.Length > 4)
@@ -222,6 +225,7 @@ namespace MyQrCode
             }
             //printQrCodesInbmp();
             Console.WriteLine("安全结束");
+            Console.ReadKey();
         }
     }
 }

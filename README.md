@@ -15,7 +15,7 @@
 231行  
 ## 四 工作时间
 约14个小时
-## 五 知识点总结图（Concept MAP）  ![]https://github.com/HangxueLiu/myExp/blob/master/MyQrCode/picture/1.png
+## 五 知识点总结图（Concept MAP）  ![](https://github.com/HangxueLiu/myExp/blob/master/MyQrCode/picture/1.png)
 ## 六 结论
 1.了解到了QrCode的编码原理  
 2.学会使用第三方提供的包  
